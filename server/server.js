@@ -27,6 +27,7 @@ mongoose.Promise = global.Promise;
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 app.use("/api/users", users);
+app.use("/api/posts/", require("./routes/api/posts"));
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
